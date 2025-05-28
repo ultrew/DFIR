@@ -1,7 +1,4 @@
-# 🛡️ Windows Registry Forensics Cheat Sheet  
-**Author**: Tanishq Nama  
-**Last Updated**: 28 May 2025
-
+# 🛡️ Windows Registry Forensics Cheat Sheet 1
 This cheat sheet provides key registry paths and usage for forensic investigation on a Windows system.
 
 ---
