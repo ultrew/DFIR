@@ -1,4 +1,4 @@
-# 🛡️ Windows Registry Forensics Cheat Sheet 1
+# 🛡️ Windows Forensics Cheat Sheet 1 (Registry)
 This cheat sheet provides key registry paths and usage for forensic investigation on a Windows system.
 
 ---
