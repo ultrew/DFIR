@@ -11,8 +11,7 @@ Welcome to the DFIR Cybersecurity Cheatsheet Repository! This repository contain
 - [📄 WindowsForensics 2 (execution_artifacts)](./windows-forensic-2.md)
   
 - [📕 WindowsForensics (Pdf)](./WindowsForensicsCheatsheet.pdf)  
-  A printable PDF version of Registry cheatsheet.
-
+  
 - 📄 [Linux Forensics](./linux-forensics.md)
 
 - 📘[Linux Forensics (Pdf)](./LinuxForensicsCheatsheet.pdf)
