@@ -20,6 +20,8 @@ Welcome to the DFIR Cybersecurity Cheatsheet Repository! This repository contain
   
 - 🛠️ [Redline-Cheatsheet](./Redline-Cheatsheet.md)
 
+- 🛠️ [KAPE](./Kape.md)
+
 ---
 
 ## 🛠️ Contributing
