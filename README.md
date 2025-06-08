@@ -6,15 +6,15 @@ Welcome to the DFIR Cybersecurity Cheatsheet Repository! This repository contain
 
 ## 🔍 Contents
 
-- [📄 WindowsForensics 1 (Registry)](./windows-forensic-1.md)
+- 📄 [WindowsForensics 1 (Registry)](./windows-forensic-1.md)
   
-- [📄 WindowsForensics 2 (execution_artifacts)](./windows-forensic-2.md)
+- 📄 [WindowsForensics 2 (execution_artifacts)](./windows-forensic-2.md)
   
-- [📕 WindowsForensics (Pdf)](./WindowsForensicsCheatsheet.pdf)  
+- 📘 [WindowsForensics (Pdf)](./WindowsForensicsCheatsheet.pdf)  
   
 - 📄 [Linux Forensics](./linux-forensics.md)
 
-- 📘[Linux Forensics (Pdf)](./LinuxForensicsCheatsheet.pdf)
+- 📕 [Linux Forensics (Pdf)](./LinuxForensicsCheatsheet.pdf)
   
 - 🛠️ [Autopsy-Cheatsheet](./Autopsy-Cheatsheet.md)
   
