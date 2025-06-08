@@ -129,4 +129,3 @@ GitHub repo: https://github.com/volatilityfoundation/volatility3
   - https://github.com/volatilityfoundation/volatility/wiki/Volatility-Documentation-Projec
   - https://digital-forensics.sans.org/media/Poster-2015-Memory-Forensics.pdf
   - https://eforensicsmag.com/finding-advanced-malware-using-volatility/
-- Continue SOC Level 1 path for practical challenges.
