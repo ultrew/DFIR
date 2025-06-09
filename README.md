@@ -24,6 +24,8 @@ Welcome to the DFIR Cybersecurity Cheatsheet Repository! This repository contain
 
 - 🛠️ [Volatility](./volatility.md)
 
+- 🛠️ [Velociraptor](./velociraptor.md)
+
 ---
 
 ## 🛠️ Contributing
