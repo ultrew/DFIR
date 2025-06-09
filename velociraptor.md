@@ -1,5 +1,4 @@
 # ✅ Velociraptor Cheat Sheet
-**Author**: Tanishq Nama  
 **Tool**: [Velociraptor](https://www.velociraptor.app/)  
 **Purpose**: Endpoint visibility, live forensics, threat hunting
 
