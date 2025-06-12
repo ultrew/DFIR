@@ -10,9 +10,8 @@ Welcome to the DFIR Cybersecurity Cheatsheet Repository! This repository contain
   
 - 📄 [WindowsForensics 2 (execution_artifacts)](./windows-forensic-2.md)
 
-- 📄 [Common Windows system processes.png](./Windows_system_processes.png)
+- 🖼️ [Common Windows system processes.png](./Windows_system_processes.png)
 
-  
 - 📘 [WindowsForensics (Pdf)](./WindowsForensicsCheatsheet.pdf)  
   
 - 📄 [Linux Forensics](./linux-forensics.md)
