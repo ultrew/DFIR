@@ -1,5 +1,42 @@
+
 # 🛡️ Windows Forensics Cheat Sheet 1 (Registry)
+
 This cheat sheet provides key registry paths and usage for forensic investigation on a Windows system.
+
+---
+
+## 🖥️ System Info & Accounts
+
+- **OS Version**  
+  `SOFTWARE\Microsoft\Windows NT\CurrentVersion`
+
+- **Current Control Set**  
+  - `HKLM\SYSTEM\CurrentControlSet`  
+  - `SYSTEM\Select\Current`  
+  - `SYSTEM\Select\LastKnownGood`
+
+- **Computer Name**  
+  `SYSTEM\CurrentControlSet\Control\ComputerName\ComputerName`
+
+- **Time Zone Information**  
+  `SYSTEM\CurrentControlSet\Control\TimeZoneInformation`
+
+- **Network Interfaces & Past Networks**  
+  `SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\Interfaces`
+
+- **SAM Hive (User Info)**  
+  `SAM\Domains\Account\Users`
+
+---
+
+## 🚀 Autostart Programs (Autoruns)
+Tracks programs configured to run at startup.
+
+- `NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\Run`  
+- `NTUSER.DAT\Software\Microsoft\Windows\CurrentVersion\RunOnce`  
+- `SOFTWARE\Microsoft\Windows\CurrentVersion\Run`  
+- `SOFTWARE\Microsoft\Windows\CurrentVersion\RunOnce`  
+- `SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer\Run`
 
 ---
 
@@ -13,11 +50,11 @@ This cheat sheet provides key registry paths and usage for forensic investigatio
 
 ## 📝 Office Recent Files  
 **Registry Hive**: `NTUSER.DAT`  
+- Office (generic):  
+  `Software\Microsoft\Office\<VERSION>\UserMRU\LiveID_####\FileMRU`  
 - Office 2013 example:  
   `Software\Microsoft\Office\15.0\Word`  
-- Office 365+:  
-  `Software\Microsoft\Office\<VERSION>\UserMRU\LiveID_####\FileMRU`  
-  - Stores complete paths of recently used files.
+  - Stores full file paths of recent Office documents.
 
 ---
 
@@ -28,7 +65,7 @@ This cheat sheet provides key registry paths and usage for forensic investigatio
 - `USRCLASS.DAT\Local Settings\Software\Microsoft\Windows\Shell\BagMRU`  
 - `USRCLASS.DAT\Local Settings\Software\Microsoft\Windows\Shell\Bags`  
 
-Use **ShellBag Explorer** (Eric Zimmerman) to parse this.
+> 📦 Use **ShellBag Explorer** (Eric Zimmerman) to parse.
 
 ---
 
@@ -50,18 +87,18 @@ Use **ShellBag Explorer** (Eric Zimmerman) to parse this.
 
 ## ⚙️ UserAssist (GUI Launched Programs)
 **Registry Hive**: `NTUSER.DAT`  
-- `Software\Microsoft\Windows\CurrentVersion\Explorer\UserAssist\{GUID}\Count`  
-  - Tracks programs launched via GUI with timestamp and launch count.
-  - Encoded in ROT13.
+- `Software\Microsoft\Windows\Currentversion\Explorer\UserAssist\{GUID}\Count`  
+  - Tracks GUI-launched programs with execution time and launch count.
+  - Encoded using ROT13.
 
 ---
 
 ## 🧬 ShimCache / AppCompatCache
 **Registry Hive**: `SYSTEM`  
 - `ControlSet001\Control\Session Manager\AppCompatCache`  
-  - Stores program execution artifacts, file size, and last modified time.
+  - Stores executed program artifacts, file path, size, and timestamps.
 
-**Tool**: Use `AppCompatCacheParser.exe`  
+> 🛠 Tool: `AppCompatCacheParser.exe`
 ```bash
 AppCompatCacheParser.exe --csv <output_path> -f <SYSTEM_hive> -c <control_set>
 ```
@@ -70,50 +107,55 @@ AppCompatCacheParser.exe --csv <output_path> -f <SYSTEM_hive> -c <control_set>
 
 ## 🧾 AmCache (Detailed Execution Info)
 **File**: `C:\Windows\appcompat\Programs\Amcache.hve`  
-- Key: `Root\File\{Volume GUID}\`  
-  - Stores path, install time, SHA1 hash, execution and deletion times.
+- `Root\File\{Volume GUID}\`  
+  - Tracks program install path, install time, SHA1 hash, execution and deletion times.
 
 ---
 
-## 📊 BAM/DAM (Background Execution Monitoring)
+## 📊 BAM/DAM (Background App Monitoring)
 **Registry Hive**: `SYSTEM`  
 - `CurrentControlSet\Services\bam\UserSettings\{SID}`  
 - `CurrentControlSet\Services\dam\UserSettings\{SID}`  
-  - Tracks last run time and full paths of background apps.
+  - Records paths and last run time of background applications.
 
 ---
 
 ## 💽 USB Device Forensics
 
-### 1. **Device Identification**
+### 🔎 1. Device Identification
 **Registry Hive**: `SYSTEM`  
 - `CurrentControlSet\Enum\USBSTOR`  
 - `CurrentControlSet\Enum\USB`  
-  - Shows Vendor ID, Product ID, Version, Plug-in Time.
+  - Vendor ID, Product ID, Version, Plug-in Time
 
-### 2. **First/Last Connection Times**
+### 🕒 2. First/Last Connection Times
 **Registry Hive**: `SYSTEM`  
 - `CurrentControlSet\Enum\USBSTOR\Ven_Prod_Version\USBSerial#\Properties\{83da6326-97a6-4088-9453-a19231573b29}\####`  
   - `0064` – First connection  
   - `0066` – Last connection  
   - `0067` – Last removal  
 
-### 3. **USB Volume Name**
+### 🏷 3. USB Volume Name
 **Registry Hive**: `SOFTWARE`  
 - `Microsoft\Windows Portable Devices\Devices`  
-  - Cross-reference GUIDs with USBSTOR for device name mapping.
+  - Cross-reference with `USBSTOR` entries for full device name mapping.
 
 ---
 
 ## 🛠️ Recommended Tools
-- **Registry Explorer** (Eric Zimmerman)  
-- **AppCompatCache Parser**  
-- **ShellBag Explorer**  
-- **EZViewer**  
+
+| Tool | Purpose |
+|------|---------|
+| **Registry Explorer** | Browse registry hives |
+| **AppCompatCache Parser** | Parse AppCompatCache |
+| **ShellBag Explorer** | View ShellBag contents |
+| **EZViewer** | View/convert encoded registry data |
 
 ---
 
 ## 📌 Notes
-- Always load hives from the disk image or extracted folders.
-- Decode `UserAssist` values with ROT13 or use a GUI parser.
-- Correlate timestamps with other artifacts (event logs, prefetch, etc.).
+- Load hives from forensic disk image or extract manually.
+- Decode `UserAssist` values using ROT13 or GUI tool.
+- Correlate with other evidence sources (event logs, prefetch, etc.).
+- BAM/DAM helpful for stealthy execution tracking.
+- ShellBags helpful to show folder activity—even on deleted paths.
