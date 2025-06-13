@@ -3,6 +3,18 @@
 
 This cheat sheet provides key registry paths and usage for forensic investigation on a Windows system.
 
+## 🗃️ Common Registry Hive Files and Their Locations
+
+| Hive Name       | Filename             | Typical Path                                |
+|----------------|----------------------|---------------------------------------------|
+| NTUSER.DAT     | `NTUSER.DAT`         | `C:\\Users\\<USERNAME>\\NTUSER.DAT`         |
+| USRCLASS.DAT   | `USRCLASS.DAT`       | `C:\\Users\\<USERNAME>\\AppData\\Local\\Microsoft\\Windows\\USRCLASS.DAT` |
+| SYSTEM         | `SYSTEM`             | `C:\\Windows\\System32\\config\\SYSTEM`     |
+| SOFTWARE       | `SOFTWARE`           | `C:\\Windows\\System32\\config\\SOFTWARE`   |
+| SAM            | `SAM`                | `C:\\Windows\\System32\\config\\SAM`        |
+| SECURITY       | `SECURITY`           | `C:\\Windows\\System32\\config\\SECURITY`   |
+| Amcache.hve    | `Amcache.hve`        | `C:\\Windows\\AppCompat\\Programs\\Amcache.hve` |
+
 ---
 
 ## 🖥️ System Info & Accounts
