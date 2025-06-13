@@ -5,16 +5,15 @@ This cheat sheet provides key registry paths and usage for forensic investigatio
 
 ## 🗃️ Common Registry Hive Files and Their Locations
 
-| Hive Name       | Filename             | Typical Path                                |
-|----------------|----------------------|---------------------------------------------|
-| NTUSER.DAT     | `NTUSER.DAT`         | `C:\\Users\\<USERNAME>\\NTUSER.DAT`         |
-| USRCLASS.DAT   | `USRCLASS.DAT`       | `C:\\Users\\<USERNAME>\\AppData\\Local\\Microsoft\\Windows\\USRCLASS.DAT` |
-| SYSTEM         | `SYSTEM`             | `C:\\Windows\\System32\\config\\SYSTEM`     |
-| SOFTWARE       | `SOFTWARE`           | `C:\\Windows\\System32\\config\\SOFTWARE`   |
-| SAM            | `SAM`                | `C:\\Windows\\System32\\config\\SAM`        |
-| SECURITY       | `SECURITY`           | `C:\\Windows\\System32\\config\\SECURITY`   |
-| Amcache.hve    | `Amcache.hve`        | `C:\\Windows\\AppCompat\\Programs\\Amcache.hve` |
-
+| Hive Name       | Filename         | Typical Path                                                                 | Description |
+|-----------------|------------------|------------------------------------------------------------------------------|-------------|
+| **NTUSER.DAT**  | `NTUSER.DAT`     | `C:\Users\<USERNAME>\NTUSER.DAT`                                            | Contains user-specific configuration settings such as desktop preferences, recent documents, and application-specific data. Loaded when a user logs into Windows. |
+| **USRCLASS.DAT**| `USRCLASS.DAT`   | `C:\Users\<USERNAME>\AppData\Local\Microsoft\Windows\USRCLASS.DAT`         | Stores additional user-specific settings like shell bags and COM class registrations. Often analyzed for evidence of user activity and file access patterns. |
+| **SYSTEM**      | `SYSTEM`         | `C:\Windows\System32\config\SYSTEM`                                         | Contains system-wide configuration including hardware info, system services, and driver details. Essential for understanding the system’s boot process and hardware. |
+| **SOFTWARE**    | `SOFTWARE`       | `C:\Windows\System32\config\SOFTWARE`                                       | Stores information about installed software, applications, and Windows components. Useful for identifying installed programs and application usage. |
+| **SAM**         | `SAM`            | `C:\Windows\System32\config\SAM`                                            | Stands for Security Accounts Manager. Contains local user accounts and hashed passwords. Critical for credential analysis in investigations. |
+| **SECURITY**    | `SECURITY`       | `C:\Windows\System32\config\SECURITY`                                       | Holds local security policy settings including user rights, group memberships, and audit policies. Important for analyzing system security posture. |
+| **Amcache.hve** | `Amcache.hve`    | `C:\Windows\AppCompat\Programs\Amcache.hve`                                 | Contains metadata about executed applications, installed programs, and device usage. Commonly used for application execution analysis in forensic investigations. |
 ---
 
 ## 🖥️ System Info & Accounts
